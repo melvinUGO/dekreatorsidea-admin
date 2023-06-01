@@ -58,8 +58,10 @@ function SettingsPage({ swal }) {
             onChange={(ev) => setFeaturedProductId(ev.target.value)}
           >
             {products.length > 0 &&
-              products.map((product) => (
-                <option value={product._id}>{product.title}</option>
+              products.map((product, index) => (
+                <option key={index} value={product._id}>
+                  {product.title}
+                </option>
               ))}
           </select>
           <label>Shipping price (in NGN)</label>
