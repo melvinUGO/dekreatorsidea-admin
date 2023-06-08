@@ -11,6 +11,7 @@ export default function ProductForm({
   price: existingPrice,
   images: existingImages,
   properties: assignedProperties,
+  size: assignedSize,
 }) {
   const [title, setTitle] = useState(existingTitle || "");
   const [description, setDescription] = useState(existingDescription || "");
@@ -21,6 +22,7 @@ export default function ProductForm({
   const [images, setImages] = useState(existingImages || []);
   const [goToProducts, setGoToProducts] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
+  const [size, setSize] = useState(assignedSize || "");
 
   const router = useRouter();
 
@@ -31,6 +33,7 @@ export default function ProductForm({
       description,
       price,
       images,
+      size,
       properties: productProperties,
     };
     if (_id) {
@@ -73,13 +76,6 @@ export default function ProductForm({
   };
   function updateImagesOrder(images) {
     setImages(images);
-  }
-  function setProductProp(propName, value) {
-    setProductProperties((prev) => {
-      const newProductProps = { ...prev };
-      newProductProps[propName] = value;
-      return newProductProps;
-    });
   }
 
   return (
@@ -133,6 +129,13 @@ export default function ProductForm({
           <input type="file" onChange={uploadImages} className="hidden" />
         </label>
       </div>
+      <label>Size (comma seperated - small,medium,large)</label>
+      <input
+        type="text"
+        placeholder="sizes"
+        value={size}
+        onChange={(ev) => setSize(ev.target.value)}
+      />
       <label>Description</label>
       <textarea
         placeholder="description"
