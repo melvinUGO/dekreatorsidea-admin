@@ -17,7 +17,7 @@ export default async function handle(req, res) {
   const photoData = await cloudinary.uploader.upload(photo, {
     folder: "dekreatorsidea",
   });
-  res.json(photoData.url);
+  res.json(photoData.secure_url);
 }
 
 export const config = {

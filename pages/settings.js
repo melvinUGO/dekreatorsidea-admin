@@ -22,10 +22,10 @@ function SettingsPage({ swal }) {
       setProducts(res.data);
     });
     await axios.get("/api/settings?name=featuredProductId").then((res) => {
-      setFeaturedProductId(res.data.value);
+      setFeaturedProductId(res?.data?.value);
     });
     await axios.get("/api/settings?name=shippingFee").then((res) => {
-      setShippingFee(res.data.value);
+      setShippingFee(res?.data?.value);
     });
   }
 

@@ -129,7 +129,7 @@ export default function ProductForm({
           <input type="file" onChange={uploadImages} className="hidden" />
         </label>
       </div>
-      <label>Size (comma seperated - small,medium,large)</label>
+      <label>Size (comma seperated - Small,Medium,Large)</label>
       <input
         type="text"
         placeholder="sizes"
